@@ -114,7 +114,9 @@ const SideBarItemWrapper: React.FC<Props> = ({
               : "move",
           },
         }}
-        onMouseDown={(e) => active && !fromConstructor && e.preventDefault()}
+        onMouseDown={(e) =>
+          ((active && !fromConstructor) || isRuntime) && e.preventDefault()
+        }
         onDoubleClick={() => {
           !isRuntime &&
             setBlocks((prevState: any) => {
